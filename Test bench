@@ -1,0 +1,20 @@
+`timescale 1ns / 1ps
+
+module cLa_4bit_tb;
+reg  [3:0]a,b;
+reg  c0;
+wire [3:0]s;
+wire c4;
+cLa_4bit_data dut (.a(a),.b(b),.c0(c0),.s(s),.c4(c4));
+    initial begin
+        a = 4'b0000; b = 4'b0000; c0 = 0;
+        #10;a = 4'b0011; b = 4'b0101; c0 = 1;
+        #10;a = 4'b0111; b = 4'b0001; c0 = 0;
+        #10;a = 4'b1111; b = 4'b0001; c0 = 0;
+        #10;a = 4'b1010; b = 4'b0101; c0 = 0;
+        #10;a = 4'b0011; b = 4'b0101; c0 = 0;
+        #10;a = 4'b1111; b = 4'b1111; c0 = 0;
+        $finish;
+    end
+
+endmodule
